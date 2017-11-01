@@ -6,12 +6,13 @@ const materialModules = [
   BrowserAnimationsModule,
   MatButtonModule,
   MatListModule,
-  MatInputModule
+  MatInputModule,
 ];
 
 @NgModule({
   imports: materialModules,
-  exports: materialModules
+  exports: materialModules,
 })
 export class MaterialComponentsModule {
 }
+
