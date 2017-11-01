@@ -16,7 +16,7 @@ export class ContactService {
     return this.contacts;
   }
 
-  addContact(conact: Contact) {
-    this.contacts.push(Object.assign({}, conact));
+  addContact(contact: Contact) {
+    this.contacts.push(Object.assign({}, contact));
   }
 }

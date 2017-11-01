@@ -1,7 +1,13 @@
+
 <mat-nav-list>
   <mat-list-item>
-    contact-list works!
+    <ca-contact-list-item *ngFor="let contact of contacts"
+                      [contact]="contact"></ca-contact-list-item>
   </mat-list-item>
 </mat-nav-list>
+<mat-list>
+  <button (click)="addContact()" mat-raised-button color="primary">Add contact</button>
+</mat-list>
+
 
 
