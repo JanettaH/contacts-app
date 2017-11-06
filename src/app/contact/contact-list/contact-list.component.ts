@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../services/contact.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ca-contact-list',
@@ -9,7 +10,7 @@ import {ContactService} from '../services/contact.service';
 })
 export class ContactListComponent implements OnInit {
 
-  title: string
+  title: string;
   contacts: Contact [];
   @Output() contactSelected: EventEmitter<Contact>;
 

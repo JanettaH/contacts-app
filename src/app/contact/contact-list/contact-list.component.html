@@ -1,13 +1,34 @@
 
+
 <mat-nav-list>
   <mat-list-item>
+    <br>
+    <h3 mat-subheader>Contacts</h3>
+    <br>
     <ca-contact-list-item *ngFor="let contact of contacts"
                       [contact]="contact"></ca-contact-list-item>
   </mat-list-item>
 </mat-nav-list>
-<mat-list>
-  <button (click)="addContact()" mat-raised-button color="primary">Add contact</button>
-</mat-list>
+
+<!--<mat-form-field class="example-full-width">
+  <input matInput placeholder="Id" [(ngModel)]="newContact.id">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="First Name" [(ngModel)]="newContact.firstName">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Last Name" [(ngModel)]="newContact.lastName">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Phone number" [(ngModel)]="newContact.phoneNumber">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Address" [(ngModel)]="newContact.address">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="City" [(ngModel)]="newContact.city">
+</mat-form-field>-->
+
 
 
 

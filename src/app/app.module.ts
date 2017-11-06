@@ -10,6 +10,19 @@ import {MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatSlider
 import {ContactService} from './contact/services/contact.service';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactComponent} from './contact/contact.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AddContactComponent } from './contact/add-contact/add-contact.component';
+
+const routes: Routes = [
+  {
+    path: 'add-contact',
+    component: AddContactComponent
+  },
+  {
+    path: 'contact',
+    component: ContactListComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -17,10 +30,13 @@ import {ContactComponent} from './contact/contact.component';
     ContactComponent,
     ContactListComponent,
     ContactListItemComponent,
+    AddContactComponent,
   ],
   imports: [
     BrowserModule,
-    MaterialComponentsModule
+    MaterialComponentsModule,
+    RouterModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [
     ContactService

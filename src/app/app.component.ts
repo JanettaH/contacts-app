@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {Contact} from './contact/contact';
 
 @Component({
   selector: 'ca-root',
@@ -6,5 +8,21 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  selectedContact: string;
+
+  constructor(private router: Router) {
+  }
+
+  showContactList() {
+    this.router.navigate(['/contact']);
+  }
+
+  showAddContact() {
+    this.router.navigate(['/add-contact']);
+  }
+
+  onContactSelected(contact: Contact) {
+    console.log(contact);
+    this.selectedContact = contact + ''
+  }
 }
