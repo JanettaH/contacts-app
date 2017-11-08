@@ -42,8 +42,4 @@ export class ContactListComponent implements OnInit {
     // this.router.navigate(['/add-contact']);
     this.router.navigate(['/contact-detail', 0]);
   }
-
-  showAddContact() {
-    this.router.navigate(['/contact-detail']);
-  }
 }

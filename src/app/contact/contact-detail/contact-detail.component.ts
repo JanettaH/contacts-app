@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'ca-contact-detail',
@@ -8,7 +8,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(parameters => {
@@ -17,5 +18,4 @@ export class ContactDetailComponent implements OnInit {
       console.log('contact-detail : contactId: ' + contactId);
     });
   }
-
 }

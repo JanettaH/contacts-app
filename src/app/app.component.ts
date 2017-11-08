@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from './contact/contact';
 
 @Component({
@@ -10,7 +10,7 @@ import {Contact} from './contact/contact';
 export class AppComponent {
   selectedContact: string;
 
-  constructor(private router: Router ) {
+  constructor(private router: Router, activatedRoute: ActivatedRoute) {
   }
 
   showContactList() {
