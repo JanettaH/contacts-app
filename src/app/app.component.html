@@ -1,5 +1,14 @@
 <router-outlet></router-outlet>
 
-<button mat-raised-button (click)="showContactList()">Contact list</button>
-<button mat-raised-button (click)="showAddContact()">Add Contact</button>
-<!--<ca-contact-list></ca-contact-list>-->
+
+<button mat-button [matMenuTriggerFor]="actions">Actions</button>
+
+
+<mat-menu #actions="matMenu">
+  <button mat-menu-item>Delete contact</button>
+  <button mat-menu-item>Edit contact</button>
+</mat-menu>
+
+
+
+

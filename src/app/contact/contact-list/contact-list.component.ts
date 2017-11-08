@@ -12,14 +12,14 @@ export class ContactListComponent implements OnInit {
 
   title: string;
   contacts: Contact [];
-  @Output() contactSelected: EventEmitter<Contact>;
+  // @Output() contactSelected: EventEmitter<Contact>;
 
   newContact: Contact;
 
-  constructor(private contactService: ContactService) {
+  constructor(private contactService: ContactService, private router: Router) {
     this.title = 'Contact List';
     this.contacts = [];
-    this.contactSelected = new EventEmitter();
+    // this.contactSelected = new EventEmitter();
     this.newContact = new Contact();
   }
 
@@ -29,11 +29,21 @@ export class ContactListComponent implements OnInit {
   }
 
   onContactSelect(contact: Contact) {
-    this.contactSelected.emit(contact);
+    // this.contactSelected.emit(contact);
     console.log(contact);
+    this.router.navigate(['/contact-detail', contact.id]);
   }
 
   addContact() {
     this.contactService.addContact(this.newContact);
+  }
+
+  onContactAdd() {
+    // this.router.navigate(['/add-contact']);
+    this.router.navigate(['/contact-detail', 0]);
+  }
+
+  showAddContact() {
+    this.router.navigate(['/contact-detail']);
   }
 }

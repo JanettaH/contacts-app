@@ -6,14 +6,23 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatSliderModule} from '@angular/material';
+import {
+  MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuTrigger, MatSidenavModule, MatSliderModule,
+  MatToolbar, MatToolbarModule,
+} from '@angular/material';
 import {ContactService} from './contact/services/contact.service';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactComponent} from './contact/contact.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AddContactComponent } from './contact/add-contact/add-contact.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: ContactListComponent
+  },
   {
     path: 'add-contact',
     component: AddContactComponent
@@ -21,6 +30,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactListComponent
+  },
+  {
+    path: 'contact-detail/:id',
+    component: ContactDetailComponent
   }
 ];
 
@@ -31,15 +44,17 @@ const routes: Routes = [
     ContactListComponent,
     ContactListItemComponent,
     AddContactComponent,
+    ContactDetailComponent,
   ],
   imports: [
     BrowserModule,
     MaterialComponentsModule,
     RouterModule,
     RouterModule.forRoot(routes),
+    FlexLayoutModule,
   ],
   providers: [
-    ContactService
+    ContactService,
   ],
   bootstrap: [AppComponent]
 })

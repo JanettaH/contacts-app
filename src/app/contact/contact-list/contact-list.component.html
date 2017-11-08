@@ -1,34 +1,27 @@
+<!--<div *ngFor="let contact of contacts">{{contact.firstName}} {{contact.lastName}}</div>-->
 
 
-<mat-nav-list>
-  <mat-list-item>
-    <br>
-    <h3 mat-subheader>Contacts</h3>
-    <br>
-    <ca-contact-list-item *ngFor="let contact of contacts"
-                      [contact]="contact"></ca-contact-list-item>
-  </mat-list-item>
-</mat-nav-list>
-
-<!--<mat-form-field class="example-full-width">
-  <input matInput placeholder="Id" [(ngModel)]="newContact.id">
-</mat-form-field>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="First Name" [(ngModel)]="newContact.firstName">
-</mat-form-field>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Last Name" [(ngModel)]="newContact.lastName">
-</mat-form-field>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Phone number" [(ngModel)]="newContact.phoneNumber">
-</mat-form-field>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Address" [(ngModel)]="newContact.address">
-</mat-form-field>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="City" [(ngModel)]="newContact.city">
-</mat-form-field>-->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voicemail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
 
 
+<ca-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (click)="onContactSelect(contact)"></ca-contact-list-item>
+
+<button mat-raised-button color="primary" (click)="onContactAdd()">+Add contact</button>
 
 
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>

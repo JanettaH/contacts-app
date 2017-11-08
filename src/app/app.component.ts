@@ -10,7 +10,7 @@ import {Contact} from './contact/contact';
 export class AppComponent {
   selectedContact: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router ) {
   }
 
   showContactList() {
@@ -23,6 +23,6 @@ export class AppComponent {
 
   onContactSelected(contact: Contact) {
     console.log(contact);
-    this.selectedContact = contact + ''
+    this.selectedContact = contact.firstName + ' ' + contact.lastName;
   }
 }
