@@ -1,14 +1,27 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="container">
 
+  <mat-sidenav #sidenav class="sidenav">
+    <p>Me</p>
+  </mat-sidenav>
 
-<button mat-button [matMenuTriggerFor]="actions">Actions</button>
+  <div class="sidenav-content">
+  </div>
 
+  <mat-toolbar color="primary">
 
-<mat-menu #actions="matMenu">
-  <button mat-menu-item>Delete contact</button>
-  <button mat-menu-item>Edit contact</button>
-</mat-menu>
+    <button mat-icon-button color="white" (click)="sidenav.open()">
+      <mat-icon>menu</mat-icon>
+    </button>
 
+    Contact app
+
+  </mat-toolbar>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
 
 
 

@@ -1,27 +1,7 @@
 <!--<div *ngFor="let contact of contacts">{{contact.firstName}} {{contact.lastName}}</div>-->
 
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voicemail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
-
-
 <ca-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (click)="onContactSelect(contact)"></ca-contact-list-item>
 
 <button mat-raised-button color="primary" (click)="onContactAdd()">+Add contact</button>
 
-
-<button mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
