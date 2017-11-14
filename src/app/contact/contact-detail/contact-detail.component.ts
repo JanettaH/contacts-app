@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Contact} from '../contact';
+import {ContactService} from '../services/contact.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'ca-contact-detail',
@@ -8,7 +11,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  contact: Contact;
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private contactService: ContactService, private location: Location) {
+    this.contact = new Contact();
   }
 
   ngOnInit() {
@@ -17,5 +23,15 @@ export class ContactDetailComponent implements OnInit {
       console.log(typeof (contactId));
       console.log('contact-detail : contactId: ' + contactId);
     });
+  }
+
+  onCreateContact() {
+    // console.error(this.contact);
+    this.contactService.createContact(this.contact);
+    this.router.navigate(['/contact']);
+  }
+
+  onCancel() {
+    this.router.navigate(['/contact']);
   }
 }

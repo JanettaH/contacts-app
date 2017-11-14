@@ -1,7 +1,16 @@
-<!--<div *ngFor="let contact of contacts">{{contact.firstName}} {{contact.lastName}}</div>-->
+
+<mat-card>
+  <mat-nav-list flex>
+    <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="contacts">
+      <ca-contact-list-item [contact]="item"></ca-contact-list-item>
+      <mat-divider *ngIf="!last" mat-inset></mat-divider>
+    </ng-template>
+  </mat-nav-list>
+</mat-card>
 
 
-<ca-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (click)="onContactSelect(contact)"></ca-contact-list-item>
+
 
 <button mat-raised-button color="primary" (click)="onContactAdd()">+Add contact</button>
+
 

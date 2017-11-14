@@ -12,14 +12,12 @@ export class ContactListComponent implements OnInit {
 
   title: string;
   contacts: Contact [];
-  // @Output() contactSelected: EventEmitter<Contact>;
 
   newContact: Contact;
 
   constructor(private contactService: ContactService, private router: Router) {
     this.title = 'Contact List';
     this.contacts = [];
-    // this.contactSelected = new EventEmitter();
     this.newContact = new Contact();
   }
 
@@ -35,11 +33,15 @@ export class ContactListComponent implements OnInit {
   }
 
   addContact() {
-    this.contactService.addContact(this.newContact);
+    this.contactService.createContact(this.newContact);
   }
 
   onContactAdd() {
     // this.router.navigate(['/add-contact']);
     this.router.navigate(['/contact-detail', 0]);
+  }
+
+  showAddContact() {
+    this.router.navigate(['/contact-list']);
   }
 }

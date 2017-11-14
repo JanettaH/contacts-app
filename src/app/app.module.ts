@@ -17,6 +17,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {AddContactComponent } from './contact/add-contact/add-contact.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
+import { CovalentLayoutModule} from '@covalent/core';
+import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 
 const routes: Routes = [
   {
@@ -45,6 +47,7 @@ const routes: Routes = [
     ContactListItemComponent,
     AddContactComponent,
     ContactDetailComponent,
+    ContactAddressPipe,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ const routes: Routes = [
     RouterModule,
     RouterModule.forRoot(routes),
     FlexLayoutModule,
+    CovalentLayoutModule
   ],
   providers: [
     ContactService,

@@ -5,27 +5,27 @@
 
 <div class="contact-form">
   <mat-form-field>
-    <input matInput placeholder="First name">
+    <input matInput placeholder="First name" [(ngModel)]="contact.firstName">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Last name">
+    <input matInput placeholder="Last name" [(ngModel)]="contact.lastName">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Phone number">
+    <input matInput placeholder="Phone number" [(ngModel)]="contact.phoneNumber">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Address">
+    <input matInput placeholder="Address" [(ngModel)]="contact.address">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="City">
+    <input matInput placeholder="City" [(ngModel)]="contact.city">
   </mat-form-field>
 
 </div>
 
-<button mat-raised-button color="primary">Create</button>
-<button mat-raised-button>Cancel</button>
+<button mat-raised-button color="primary" (click)="onCreateContact()">Create</button>
+<button mat-raised-button (click)="onCancel()">Cancel</button>
     <mat-icon aria-label="Cancel"></mat-icon>
