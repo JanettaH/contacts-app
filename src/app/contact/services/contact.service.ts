@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class ContactService {
 
-  private contacts: Contact[];
+  public contacts: Contact[];
 
   constructor() {
     this.contacts = [
@@ -25,18 +25,22 @@ export class ContactService {
     if (this.contacts.length === 0) {
       contactId = 1;
     } else {
-      let ids = this.contacts.map(c => c.id);
+      const ids = this.contacts.map(c => c.id);
       console.log(ids);
-      let maxId = Math.max(...ids);
+      const maxId = Math.max(...ids);
       console.log('Max id: ' + maxId);
-      // this.contacts.push(Object.assign({}, contact));
       contactId = maxId + 1;
     }
     contact.id = contactId;
     this.contacts.push(Object.assign({}, contact));
   }
-    deleteContact(contact: Contact) {
-    let index = this.contacts.findIndex(c => c.id === contact.id);
-    console.log('Index: ' + index);
+  public deleteContact(id: number) {
+    const index: number = this.contacts.findIndex(c => c.id === id);
+    this.contacts.splice(index, 1);
+  }
+  public editContact (contact: Contact) {
+    const index: number = this.contacts.findIndex(c => c.id === contact.id);
+    contact[index] = contact;
+    return this.contacts;
   }
 }
