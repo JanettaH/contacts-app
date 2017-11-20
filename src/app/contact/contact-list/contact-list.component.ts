@@ -22,12 +22,11 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
+    this.contacts = this.contactService.findContacts();
     console.log(this.contacts);
   }
 
   onContactSelect(contact: Contact) {
-    // this.contactSelected.emit(contact);
     console.log(contact);
     this.router.navigate(['/contact-detail', contact.id]);
   }
