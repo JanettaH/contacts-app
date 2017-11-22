@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Contact} from '../contact';
-import {ContactService} from '../services/contact.service';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {Router} from '@angular/router';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-list',
@@ -22,8 +23,11 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.findContacts();
-    console.log(this.contacts);
+    //this.contacts = this.contactService.findContacts();
+
+    this.contactService.findContacts().subscribe((contacts: Contact []) => {
+      this.contacts = contacts;
+    });
   }
 
   onContactSelect(contact: Contact) {
@@ -32,7 +36,7 @@ export class ContactListComponent implements OnInit {
   }
 
   addContact() {
-    this.contactService.createContact(this.newContact);
+    //this.contactService.createContact(this.newContact);
   }
 
   onContactAdd() {

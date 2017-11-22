@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {Contact} from '../contact';
-import {ContactService} from '../services/contact.service';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-list-item',
@@ -17,12 +18,12 @@ export class ContactListItemComponent implements OnInit {
 
   ngOnInit() {
   }
-  deleteContact() {
+  deleteContactById() {
     this.contactService.deleteContact(this.contact.id);
     this.router.navigate(['/contact']);
   }
   onEditContact() {
-    this.contactService.editContact(this.contact);
+   // this.contactService.editContact(this.contact);
     this.router.navigate(['/']);
   }
 }

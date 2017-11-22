@@ -10,7 +10,7 @@ import {
   MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuTrigger, MatSidenavModule, MatSliderModule,
   MatToolbar, MatToolbarModule,
 } from '@angular/material';
-import {ContactService} from './contact/services/contact.service';
+import {ContactLocalStorageService} from './contact/services/contact-local-storage.service';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactComponent} from './contact/contact.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -20,6 +20,9 @@ import { ContactDetailComponent } from './contact/contact-detail/contact-detail.
 import { CovalentLayoutModule} from '@covalent/core';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { LoginComponent } from './contact/user/login/login.component';
+import {ContactService} from './contact/services/contact.service';
+import {ContactHttpService} from './contact/services/contact-http.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -54,13 +57,16 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     MaterialComponentsModule,
+    HttpClientModule,
     RouterModule,
     RouterModule.forRoot(routes),
     FlexLayoutModule,
-    CovalentLayoutModule
+    CovalentLayoutModule,
   ],
   providers: [
+    ContactHttpService,
     ContactService,
+    ContactLocalStorageService,
   ],
   bootstrap: [AppComponent]
 })

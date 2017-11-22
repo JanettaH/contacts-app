@@ -4,7 +4,7 @@
   <img matListAvatar src="https://api.adorable.io/avatars/285/1@adorable.io.png" />
   <h4 matLine class="cursor-pointer"> {{contact.firstName}} {{contact.lastName}}, {{contact.phoneNumber}}, {{contact.address}} </h4>
   <button mat-icon-button (click)="onEditContact()" matTooltip="Edit contact"><mat-icon>edit</mat-icon></button>
-  <button mat-icon-button (click)="deleteContact()" matTooltip="Delete contact"><mat-icon>delete</mat-icon></button>
+  <button mat-icon-button (click)="deleteContactById()" matTooltip="Delete contact"><mat-icon>delete</mat-icon></button>
   <button mat-icon-button matTooltip="More actions"><mat-icon>more_vert</mat-icon></button>
 </a>
 

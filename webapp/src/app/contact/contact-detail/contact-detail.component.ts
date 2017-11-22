@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../contact';
-import {ContactService} from '../services/contact.service';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {Location} from '@angular/common';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-detail',
