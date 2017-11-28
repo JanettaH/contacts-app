@@ -22,8 +22,8 @@ export class ContactListItemComponent implements OnInit {
     this.contactService.deleteContact(this.contact.id);
     this.router.navigate(['/contact']);
   }
-  onEditContact() {
-   // this.contactService.editContact(this.contact);
-    this.router.navigate(['/']);
+  editContactById() {
+   this.contactService.editContact(this.contact);
+    this.router.navigate(['/contact']);
   }
 }

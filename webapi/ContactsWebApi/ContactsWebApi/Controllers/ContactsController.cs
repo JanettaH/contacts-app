@@ -33,7 +33,7 @@ namespace ContactsWebApi.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create([FromBody]Contact contact)
+        public IActionResult Create([FromBody]Contact contact)
         {
             _contactService.CreateContact(contact);
             return new JsonResult(contact);
@@ -44,6 +44,19 @@ namespace ContactsWebApi.Controllers
         {
             _contactService.DeleteContact(id);
             return new NoContentResult();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Edit(int id, [FromBody] Contact contact)
+        {
+            _contactService.EditContact(id, contact);
+            if (!ModelState.IsValid)
+            {
+                return new BadRequestResult();
+            }
+
+
+            return new JsonResult(contact);
         }
     }
 }

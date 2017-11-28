@@ -39,6 +39,14 @@ namespace ContactsWebApi.Repositories
             _contacts.Remove(contact);
         }
 
+        public void EditById(Contact contact)
+        {
+            int index = _contacts.FindIndex(c => c.Id == contact.Id);
+            _contacts[index] = contact;
+            _contacts.Remove(contact);
+            _contacts.Add(contact);
+        }
+
         private void Initialize()
         {
             _contacts = new List<Contact>

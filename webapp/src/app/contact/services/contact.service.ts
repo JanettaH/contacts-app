@@ -27,10 +27,7 @@ export class ContactService {
   deleteContact(id: number) {
     return this.contactHttpService.delete(id);
   }
-
-/*  saveContact(contact: Contact){
-    this.contactHttpService.create(contact).map(()=>{
-      this.contacts.push(contact);
-    });*/
-    // return this.localStorage. saveContact(contact);
+  editContact(contact: Contact) {
+    return this.contactHttpService.edit(contact);
+  }
 }

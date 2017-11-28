@@ -36,5 +36,10 @@ namespace ContactsWebApi.Services
         {
             _contactRepository.DeleteById(id);
         }
+
+        public void EditContact(int id, Contact contact)
+        {
+            _contactRepository.EditById(id);
+        }
     }
 }

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ContactsWebApi",
+    "\\ContactsWebApi\\ContactsWebApi",
+    "\\ContactsWebApi\\ContactsWebApi\\Controllers",
+    "\\ContactsWebApi\\ContactsWebApi\\Models",
+    "\\ContactsWebApi\\ContactsWebApi\\Repositories",
+    "\\ContactsWebApi\\ContactsWebApi\\Services"
+  ],
+  "SelectedNode": "\\ContactsWebApi\\ContactsWebApi.sln",
+  "PreviewInSolutionExplorer": false
+}

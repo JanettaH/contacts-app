@@ -25,4 +25,7 @@ export class ContactHttpService {
   delete(id: number){
     return this.http.delete(this.url + '/' + id).subscribe();
   }
+  edit(contact: Contact){
+    return this.http.put<Contact>(this.url, contact).subscribe();
+  }
 }
