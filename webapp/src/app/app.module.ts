@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path: 'contact-detail/:id',
     component: ContactDetailComponent
+  },
+  {
+    path: 'contact-detail',
+    component: ContactDetailComponent
   }
 ];
 

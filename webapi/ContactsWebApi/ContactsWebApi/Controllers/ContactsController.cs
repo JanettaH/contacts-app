@@ -49,11 +49,11 @@ namespace ContactsWebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Edit(int id, [FromBody] Contact contact)
         {
-            _contactService.EditContact(id, contact);
-            if (!ModelState.IsValid)
+            _contactService.EditContact(contact);
+            /*if (!ModelState.IsValid)
             {
                 return new BadRequestResult();
-            }
+            }*/
 
 
             return new JsonResult(contact);

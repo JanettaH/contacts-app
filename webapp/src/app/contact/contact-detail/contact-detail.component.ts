@@ -13,25 +13,41 @@ import {ContactService} from '../services/contact.service';
 export class ContactDetailComponent implements OnInit {
 
   contact: Contact;
+  private contactId;
+  private editContact: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private contactService: ContactService, private location: Location) {
     this.contact = new Contact();
+    this.contactId = 0;
+    this.editContact = false;
   }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(parameters => {
-      const contactId = +parameters.get('id');
-      console.log(typeof (contactId));
-      console.log('contact-detail : contactId: ' + contactId);
+      this.contactId = +parameters.get('id')
     });
+    if (this.contactId != 0)
+    {
+      this.editContact = true;
+      this.contactService.findContactById(this.contactId).subscribe(contact => {
+        this.contact = contact;
+      })
+    }
   }
 
   onCreateContact() {
     // console.error(this.contact);
-    this.contactService.createContact(this.contact);
-    this.router.navigate(['/contact']);
-  }
+    if(this.editContact === true){
+      this.contactService.editContact(this.contact).subscribe(() => {
+        this.router.navigate(['/contact']);
+      });
 
+    } else{
+      this.contactService.createContact(this.contact).subscribe(() => {
+      this.router.navigate(['/contact']);
+    });
+  }
+  }
   onCancel() {
     this.router.navigate(['/contact']);
   }

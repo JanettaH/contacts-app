@@ -3,11 +3,12 @@ import {ContactLocalStorageService} from './contact-local-storage.service';
 import {Contact} from '../contact';
 import {ContactHttpService} from './contact-http.service';
 import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class ContactService {
 
-  constructor(private localStorage: ContactLocalStorageService, private contactHttpService: ContactHttpService) {
+  constructor(private localStorage: ContactLocalStorageService, private contactHttpService: ContactHttpService, private router: Router) {
 
   }
 
@@ -18,7 +19,7 @@ export class ContactService {
   }
 
   findContactById(id: number) {
-    return this.localStorage.findContactById(id);
+    return this.contactHttpService.getContactById(id);
   }
 
   createContact(contact: Contact) {

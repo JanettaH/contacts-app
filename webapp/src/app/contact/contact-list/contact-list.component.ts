@@ -23,8 +23,11 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getContact();
     //this.contacts = this.contactService.findContacts();
 
+  }
+  getContact() {
     this.contactService.findContacts().subscribe((contacts: Contact []) => {
       this.contacts = contacts;
     });
@@ -41,9 +44,14 @@ export class ContactListComponent implements OnInit {
 
   onContactAdd() {
     // this.router.navigate(['/add-contact']);
-    this.router.navigate(['/contact-detail', 0]);
+    this.router.navigate(['/contact-detail']);
   }
 
+  onContactDelete(contact: Contact) {
+    this.contactService.deleteContact(contact.id).subscribe(() => {
+      this.getContact();
+    });
+  }
   showAddContact() {
     this.router.navigate(['/contact-list']);
   }

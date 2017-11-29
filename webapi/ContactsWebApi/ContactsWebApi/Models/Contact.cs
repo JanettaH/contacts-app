@@ -21,6 +21,10 @@ namespace ContactsWebApi.Models
         [Required]
         public string City { get; set; }
 
+        public Contact()
+        {
+        }
+
         public Contact(int id, string fristName, string lastName, string phoneNumber, string address, string city)
         {
             Id = id;

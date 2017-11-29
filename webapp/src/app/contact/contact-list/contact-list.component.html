@@ -2,7 +2,7 @@
 <mat-card>
   <mat-nav-list flex>
     <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="contacts">
-      <ca-contact-list-item [contact]="item"></ca-contact-list-item>
+      <ca-contact-list-item [contact]="item" (contactDelete)="onContactDelete(item)"></ca-contact-list-item>
       <mat-divider *ngIf="!last" mat-inset></mat-divider>
     </ng-template>
   </mat-nav-list>

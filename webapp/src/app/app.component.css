@@ -13,3 +13,11 @@
 .sidenav{
   width: 200px;
 }
+
+.ca-sidenav-avatar{
+  position: relative;
+  font-size: 150px;
+  width: 100px;
+  height: 100px;
+  position: static;
+}

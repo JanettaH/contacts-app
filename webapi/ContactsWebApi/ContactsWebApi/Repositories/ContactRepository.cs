@@ -11,16 +11,19 @@ namespace ContactsWebApi.Repositories
     public class ContactRepository : IContactRepository
     {
         private List<Contact> _contacts;
+        private ContactContext _context;
 
-        public ContactRepository()
+        public ContactRepository(ContactContext context)
         {
             _contacts = new List<Contact>();
+            _context = context;
             Initialize();
         }
 
         public List<Contact> GetAll()
         {
-            return _contacts;
+            //return _contacts;
+            return _context.Contacts.ToList();
         }
 
         public Contact GetById(int id)
@@ -30,8 +33,13 @@ namespace ContactsWebApi.Repositories
 
         public void Create(Contact contact)
         {
+            if (_contacts.Count > 0)
+                contact.Id = _contacts.Max(c => c.Id) + 1;
+            else
+                contact.Id = 0 + 1;
             _contacts.Add(contact);
         }
+
 
         public void DeleteById (int id)
         {
@@ -43,8 +51,8 @@ namespace ContactsWebApi.Repositories
         {
             int index = _contacts.FindIndex(c => c.Id == contact.Id);
             _contacts[index] = contact;
-            _contacts.Remove(contact);
-            _contacts.Add(contact);
+           /* _contacts.Remove(contact);
+            _contacts.Add(contact);*/
         }
 
         private void Initialize()
