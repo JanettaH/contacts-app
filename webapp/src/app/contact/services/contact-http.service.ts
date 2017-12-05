@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Contact} from '../contact';
 import 'rxjs/add/operator/map';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class ContactHttpService {
@@ -10,7 +11,7 @@ export class ContactHttpService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:59001/api/contacts';
+    this.url = environment.endpointUrl + '/contacts';
   }
 
   get(): Observable<Contact[]> {
@@ -24,15 +25,18 @@ export class ContactHttpService {
       return response as Contact;
     });
   }
+
   //TO Create contact Observable
-  create (contact: Contact) {
+  create(contact: Contact) {
     return this.http.post(this.url, contact);
   }
-  delete(id: number){
+
+  delete(id: number) {
     return this.http.delete(this.url + '/' + id);
   }
-  edit(contact: Contact){
-    return this.http.put(this.url +'/' + contact.id, contact).map((response) => {
+
+  edit(contact: Contact) {
+    return this.http.put(this.url + '/' + contact.id, contact).map((response) => {
       return response as Contact;
     });
   }

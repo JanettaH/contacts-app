@@ -29,11 +29,12 @@ namespace ContactsWebApi
         {
             services.AddMvc();
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=ContactsWebApi;Trusted_Connection=True;";
+            var connection =
+                @"Server=tcp:contactsekoodi.database.windows.net,1433;Initial Catalog=contactsdb;Persist Security Info=False;User ID=ekoodi;Password=helloteam94!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"; //@"Server=(localdb)\mssqllocaldb;Database=ContactsWebApi;Trusted_Connection=True;";
             services.AddDbContext<ContactContext>(options => options.UseSqlServer(connection));
-        
+
             services.AddScoped<IContactService, ContactService>();
-            services.AddSingleton<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
 
             services.AddCors(o => o.AddPolicy("ContactsAppPolicy", builder =>
             {
@@ -51,6 +52,11 @@ namespace ContactsWebApi
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors("ContactsAppPolicy");
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<ContactContext>();
+                context.Database.EnsureCreated();
+            }
 
             app.UseMvc();
         }

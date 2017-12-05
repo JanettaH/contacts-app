@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="416cffb3-9cd7-4f02-80c3-adae360839f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapi/ContactsWebApi/ContactsWebApi/Properties/launchSettings.json" afterPath="$PROJECT_DIR$/webapi/ContactsWebApi/ContactsWebApi/Properties/launchSettings.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapi/ContactsWebApi/ContactsWebApi/Startup.cs" afterPath="$PROJECT_DIR$/webapi/ContactsWebApi/ContactsWebApi/Startup.cs" />
-    </list>
+    <list default="true" id="416cffb3-9cd7-4f02-80c3-adae360839f8" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,7 +44,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,6 +55,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -91,11 +88,12 @@
       <updated>1511247229708</updated>
       <workItem from="1511247233016" duration="83000" />
       <workItem from="1511248282748" duration="37000" />
+      <workItem from="1512370331814" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120000" />
+    <option name="totallyTimeSpent" value="127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />

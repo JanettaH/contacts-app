@@ -25,9 +25,11 @@ export class ContactService {
   createContact(contact: Contact) {
     return this.contactHttpService.create(contact);
   }
+
   deleteContact(id: number) {
     return this.contactHttpService.delete(id);
   }
+
   editContact(contact: Contact) {
     return this.contactHttpService.edit(contact);
   }

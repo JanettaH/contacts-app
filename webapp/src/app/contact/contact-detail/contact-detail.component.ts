@@ -24,30 +24,30 @@ export class ContactDetailComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(parameters => {
-      this.contactId = +parameters.get('id')
+      this.contactId = +parameters.get('id');
     });
-    if (this.contactId != 0)
-    {
+    if (this.contactId != 0) {
       this.editContact = true;
       this.contactService.findContactById(this.contactId).subscribe(contact => {
         this.contact = contact;
-      })
+      });
     }
   }
 
   onCreateContact() {
     // console.error(this.contact);
-    if(this.editContact === true){
+    if (this.editContact === true) {
       this.contactService.editContact(this.contact).subscribe(() => {
         this.router.navigate(['/contact']);
       });
 
-    } else{
+    } else {
       this.contactService.createContact(this.contact).subscribe(() => {
-      this.router.navigate(['/contact']);
-    });
+        this.router.navigate(['/contact']);
+      });
+    }
   }
-  }
+
   onCancel() {
     this.router.navigate(['/contact']);
   }

@@ -27,6 +27,7 @@ export class ContactListComponent implements OnInit {
     //this.contacts = this.contactService.findContacts();
 
   }
+
   getContact() {
     this.contactService.findContacts().subscribe((contacts: Contact []) => {
       this.contacts = contacts;
@@ -52,6 +53,7 @@ export class ContactListComponent implements OnInit {
       this.getContact();
     });
   }
+
   showAddContact() {
     this.router.navigate(['/contact-list']);
   }

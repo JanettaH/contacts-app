@@ -19,13 +19,15 @@ export class ContactListItemComponent implements OnInit {
 
   ngOnInit() {
   }
+
   deleteContactById() {
     //this.contactService.deleteContact(this.contact.id);
     //this.router.navigate(['/contact']);
     this.contactDelete.emit();
   }
+
   editContactById() {
-   //this.contactService.editContact(this.contact);
-    this.router.navigate(['contact-detail/'+ this.contact.id]);
+    //this.contactService.editContact(this.contact);
+    this.router.navigate(['contact-detail/' + this.contact.id]);
   }
 }
