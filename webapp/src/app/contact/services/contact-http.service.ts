@@ -27,8 +27,10 @@ export class ContactHttpService {
   }
 
   //TO Create contact Observable
-  create(contact: Contact) {
-    return this.http.post(this.url, contact);
+  create(contact: Contact): Observable<Contact> {
+    return this.http.post(this.url, contact).map(contact => {
+      return contact as Contact;
+    });
   }
 
   delete(id: number) {
