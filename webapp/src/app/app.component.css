@@ -9,16 +9,18 @@
   height: auto;
   align-items: center;
   justify-content: center;
-}
 
-.sidenav{
-  width: 200px;
-  overflow-x: hidden;
 }
 .ca-sidenav-avatar{
+  position: absolute;
   font-size: 150px;
   width: 100px;
   height: 100px;
-  margin-left: 25px;
-  top: 0;
+  top: 50px;
+  right: 50px;
+  left: 50px;
+}
+mat-sidenav{
+  position: absolute;
+  size: 10px;
 }
