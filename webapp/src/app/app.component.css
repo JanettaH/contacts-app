@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 
 .sidenav-content {
@@ -12,12 +13,12 @@
 
 .sidenav{
   width: 200px;
+  overflow-x: hidden;
 }
-
 .ca-sidenav-avatar{
-  position: relative;
   font-size: 150px;
   width: 100px;
   height: 100px;
-  position: static;
+  margin-left: 25px;
+  top: 0;
 }
