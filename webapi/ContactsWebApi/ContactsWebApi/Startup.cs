@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using ContactsWebApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ContactsWebApi
 {
@@ -35,11 +36,25 @@ namespace ContactsWebApi
 
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<ITokenService, TokenService>();
 
             services.AddCors(o => o.AddPolicy("ContactsAppPolicy", builder =>
             {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
+
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    //options.Audience = "<applicationId>";
+                    //options.Authority = "<loginUrl>" + "<directoryId>";
+                    options.Audience = "3ac8700d-6c1b-45c4-a00a-b6e6a9b24978";
+                    options.Authority = "https://login.windows.net/" + "c3cf5f23-800c-4530-874c-86506f21d500";
+                });
 
             services.AddMvc();
         }
@@ -52,12 +67,12 @@ namespace ContactsWebApi
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors("ContactsAppPolicy");
+            app.UseAuthentication();
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<ContactContext>();
                 context.Database.EnsureCreated();
             }
-
             app.UseMvc();
         }
     }

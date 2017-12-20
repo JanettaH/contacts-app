@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'contact-detail',
     component: ContactDetailComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
