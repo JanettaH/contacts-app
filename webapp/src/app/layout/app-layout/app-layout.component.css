@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidenav-content {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+
+}
+.ca-sidenav-avatar{
+  position: absolute;
+  font-size: 150px;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  right: 50px;
+  left: 50px;
+}
+mat-sidenav{
+  position: absolute;
+  size: 10px;
+}

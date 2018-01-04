@@ -10,5 +10,4 @@ export class UserService {
     return this.authService.authenticate(username, password);
 
   }
-
 }

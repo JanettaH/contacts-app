@@ -36,7 +36,7 @@ export class ContactListComponent implements OnInit {
 
   onContactSelect(contact: Contact) {
     console.log(contact);
-    this.router.navigate(['/contact-detail', contact.id]);
+    this.router.navigate(['/ca/contact-detail', contact.id]);
   }
 
   addContact() {
@@ -45,7 +45,7 @@ export class ContactListComponent implements OnInit {
 
   onContactAdd() {
     // this.router.navigate(['/add-contact']);
-    this.router.navigate(['/contact-detail']);
+    this.router.navigate(['/ca/contact-detail']);
   }
 
   onContactDelete(contact: Contact) {
@@ -55,6 +55,6 @@ export class ContactListComponent implements OnInit {
   }
 
   showAddContact() {
-    this.router.navigate(['/contact-list']);
+    this.router.navigate(['/ca/contact-list']);
   }
 }

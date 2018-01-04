@@ -38,17 +38,17 @@ export class ContactDetailComponent implements OnInit {
     // console.error(this.contact);
     if (this.editContact === true) {
       this.contactService.editContact(this.contact).subscribe(() => {
-        this.router.navigate(['/contact']);
+        this.router.navigate(['/ca/contact']);
       });
 
     } else {
       this.contactService.createContact(this.contact).subscribe(() => {
-        this.router.navigate(['/contact']);
+        this.router.navigate(['/ca/contact']);
       });
     }
   }
 
   onCancel() {
-    this.router.navigate(['/contact']);
+    this.router.navigate(['/ca/contact']);
   }
 }
