@@ -1,0 +1,9 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill="">
+<form>
+  <p class="title">{{ title }}</p>
+  <p class="message">{{ message }}</p>
+</form>
+<form>
+  <button type="button" mat-raised-button color="primary"(click)="dialogRef.close(true)">OK</button><button type="button" mat-button (click)="dialogRef.close()">Cancel</button>
+</form>
+</div>

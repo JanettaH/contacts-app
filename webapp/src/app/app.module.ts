@@ -21,6 +21,10 @@ import {LoginComponent} from './user/login/login.component';
 import {UserService} from './user/services/user.service';
 import {AuthenticationService} from './user/services/authentication.service';
 import {CaHttpInterceptor} from './config/ca-http-interceptor';
+import {PopupComponent } from './popup/popup/popup.component';
+import {PopupService} from './popup/popup/popup.service';
+import { SignUpComponent } from './user/sign-up/sign-up/sign-up.component';
+
 
 const routes: Routes = [
   {
@@ -51,7 +55,6 @@ const routes: Routes = [
         path: 'contact-detail',
         component: ContactDetailComponent
       },
-
     ]
   }
 ];
@@ -66,7 +69,9 @@ const routes: Routes = [
     ContactDetailComponent,
     ContactAddressPipe,
     AppLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    PopupComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,12 +87,14 @@ const routes: Routes = [
     ContactLocalStorageService,
     UserService,
     AuthenticationService,
+    PopupService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CaHttpInterceptor,
       multi: true
     }
   ],
+  entryComponents: [PopupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

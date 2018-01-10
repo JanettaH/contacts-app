@@ -1,8 +1,16 @@
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import {PopupService} from '../popup/popup/popup.service';
+import {Inject} from '@angular/core';
+import 'rxjs/add/observable/throw';
 
 export class CaHttpInterceptor implements HttpInterceptor {
+
+
+  constructor(@Inject(PopupService)private popup: PopupService) {
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.getStoredToken();
     if (token) {
@@ -17,12 +25,23 @@ export class CaHttpInterceptor implements HttpInterceptor {
 
   private handleHttpRequest(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).catch((response: HttpErrorResponse) => {
-      if (response.status === 200) {
-        console.log('200 OK');
-        return Observable.throw(response);
-      } else {
-        console.log('Oops! Something went wrong, please try again!')
+
+
+      const errorMessage = {title: '', message: ''};
+      if (response.status === 401) {
+        errorMessage.title = 'Unauthorized access:';
+        errorMessage.message = 'Something went wrong, please try again!';
       }
+      if (response.status === 0) {
+        errorMessage.title = 'Something went wrong.';
+        errorMessage.message = 'Come back later.';
+
+
+      }
+
+      this.popup.confirm(errorMessage.title, errorMessage.message);
+
+      return Observable.throw(response);
     });
   }
 

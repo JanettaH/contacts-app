@@ -1,26 +1,37 @@
-.container {
+.ca-sidenav-container {
+  margin: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
-.sidenav-content {
-  display: flex;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-
+.side-nav{
+  width: 200px;
 }
-.ca-sidenav-avatar{
+.clear{
   position: absolute;
-  font-size: 150px;
-  width: 100px;
-  height: 100px;
-  top: 50px;
-  right: 50px;
-  left: 50px;
+  top: 0;
+  right: 0;
 }
-mat-sidenav{
+.settings{
   position: absolute;
-  size: 10px;
+}
+.ca-sidenav-avatar {
+  font-size: 175px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  padding: 0;
+}
+.person {
+  left: 35px;
+}
+.favorite{
+  bottom: 15px;
 }

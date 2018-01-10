@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../../contact/contact';
+import {FormControl} from '@angular/forms';
 
 
 @Component({

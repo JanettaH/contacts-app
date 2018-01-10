@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {nextTick} from 'q';
 import {Router} from '@angular/router';
+import {PopupService} from '../../popup/popup/popup.service';
+import {error} from 'util';
 
 @Component({
   selector: 'ca-login',
@@ -15,18 +17,15 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private popup: PopupService) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    this.userService.login(this.user.username, this.user.password).subscribe(() => {
-      console.log('Navigate to app');
-      this.router.navigate(['/ca/contact']);
-    })
+    this.userService.login(this.user.username, this.user.password).subscribe((result) => {
 
-
+    });
   }
 }
