@@ -28,7 +28,6 @@ import { ToolbarComponent } from './layout/app-layout/toolbar/toolbar/toolbar.co
 import {ToolbarService} from './layout/app-layout/toolbar/toolbar/toolbar.service';
 import {FormsModule} from '@angular/forms';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -77,9 +76,9 @@ const routes: Routes = [
     ContactAddressPipe,
     AppLayoutComponent,
     LoginComponent,
-    PopupComponent,
     SignUpComponent,
     ToolbarComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
