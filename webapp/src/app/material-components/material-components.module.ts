@@ -1,10 +1,15 @@
 import {NgModule} from '@angular/core';
 import {
-  MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatSidenavModule,
+  MatButtonModule, MatCard, MatCardModule, MatCheckboxModule, MatCommonModule, MatDialogModule, MatIconModule, MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import {LayoutModule} from '@angular/cdk/layout';
 
 const materialModules = [
   BrowserAnimationsModule,
@@ -17,7 +22,13 @@ const materialModules = [
   MatButtonModule,
   FormsModule,
   MatMenuModule,
-  MatDialogModule
+  MatDialogModule,
+  LayoutModule,
+  MatCommonModule,
+  MatSlideToggleModule,
+  MatCheckboxModule,
+  MatCardModule,
+
 ];
 
 @NgModule({

@@ -1,19 +1,48 @@
-<p>
-  Please fill the from below to sign up
-</p>
+<mat-toolbar color="primary">
+  <span>Sign up</span>
+</mat-toolbar>
+<div fxLayout="column" fxLayoutAlign="center center" fxFill="">
+  <span class="title">Please fill the form below to sign up</span>
 
-<div>
   <mat-input-container floatPlaceholder="auto">
-    <input matInput [(ngModel)]="modelName"
+    <input matInput [(ngModel)]="user.firstname"
+           type="text"
+           required
+           placeholder="First Name">
+  </mat-input-container>
+
+  <mat-input-container floatPlaceholder="auto">
+    <input matInput [(ngModel)]="user.lastname"
+           type="text"
+           required
+           placeholder="Last Name">
+  </mat-input-container>
+
+  <mat-input-container floatPlaceholder="auto">
+    <input matInput [(ngModel)]="user.email"
+           type="text"
+           required
+           placeholder="E-mail Address">
+  </mat-input-container>
+
+
+  <mat-input-container floatPlaceholder="auto">
+    <input matInput [(ngModel)]="user.username"
            type="text"
            required
            placeholder="Username">
   </mat-input-container>
-
   <mat-input-container floatPlaceholder="auto">
-    <input matInput [(ngModel)]="modelName"
-           type="text"
+    <input matInput [(ngModel)]="user.password"
+           type="password"
            required
            placeholder="Password">
   </mat-input-container>
+
+
+  <p class="agree">By creating an account you agree to our <a href="https://termsfeed.com/blog/sample-privacy-policy-template/" target="blank"> Terms & Privacy</a>.</p>
+
+  <form>
+    <button mat-raised-button (click)="signup()" color="primary">Sign up</button> <span></span> <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+  </form>
 </div>

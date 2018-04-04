@@ -24,12 +24,19 @@ import {CaHttpInterceptor} from './config/ca-http-interceptor';
 import {PopupComponent } from './popup/popup/popup.component';
 import {PopupService} from './popup/popup/popup.service';
 import { SignUpComponent } from './user/sign-up/sign-up/sign-up.component';
+import { ToolbarComponent } from './layout/app-layout/toolbar/toolbar/toolbar.component';
+import {ToolbarService} from './layout/app-layout/toolbar/toolbar/toolbar.service';
+import {FormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
   },
   {
     path: 'login',
@@ -72,6 +79,7 @@ const routes: Routes = [
     LoginComponent,
     PopupComponent,
     SignUpComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +87,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     FlexLayoutModule,
-    CovalentLayoutModule
+    CovalentLayoutModule,
+    FormsModule
   ],
   providers: [
     ContactHttpService,
@@ -88,6 +97,7 @@ const routes: Routes = [
     UserService,
     AuthenticationService,
     PopupService,
+    ToolbarService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CaHttpInterceptor,

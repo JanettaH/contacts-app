@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'ca-sign-up',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  user = {
+    firstname: '',
+    lastname: '',
+    email: '',
+    username: '',
+    password: ''
+  };
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  signup() {
+    this.userService.signup(this.user.firstname, this.user.lastname, this.user.email, this.user.username, this.user.password).subscribe((result) => {
+    });
+  }
+  cancel() {
+    this.router.navigate(['/login']);
+  }
 }

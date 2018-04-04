@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../../contact/contact';
-import {FormControl} from '@angular/forms';
+import {MatSidenav} from '@angular/material';
+import {BreakpointObserver} from '@angular/cdk/layout';
 
 
 @Component({
@@ -11,9 +12,27 @@ import {FormControl} from '@angular/forms';
 })
 export class AppLayoutComponent {
 
+  smallScreenQuery = '(max-width: 5999)';
+  isSmallScreen: boolean;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   selectedContact: string;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute) {
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, activatedRoute: ActivatedRoute) {
+    this.isSmallScreen = breakpointObserver.isMatched(this.smallScreenQuery);
+  }
+
+  ngOnInit(): void {
+    this.breakpointObserver.observe([
+      this.smallScreenQuery
+    ]).subscribe(result => {
+      this.isSmallScreen = result.matches;
+    });
+  }
+
+  toggleSidenav() {
+    if (this.sidenav) {
+      this.sidenav.toggle();
+    }
   }
 
   showContactList() {

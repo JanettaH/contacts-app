@@ -1,18 +1,30 @@
+<mat-toolbar color="primary">
+  <span>Log in</span>
+</mat-toolbar>
 <div fxLayout="column" fxLayoutAlign="center center" fxFill="">
-  <mat-input-container floatPlaceholder="auto">
-    <input matInput [(ngModel)]="user.username"
-           type="text"
-           required
-           placeholder="Username">
-  </mat-input-container>
-  <mat-input-container floatPlaceholder="auto">
-    <input matInput [(ngModel)]="user.password"
-           type="password"
-           required
-           placeholder="Username">
-  </mat-input-container>
-
-  <form>
-    <button ng-click mat-raised-button (click)="login()" color="primary">Login</button> <button mat-raised-button="signUp">Sign up</button>
-  </form>
+  <mat-card>
+    <div fxLayout="column" fxLayoutAlign="center center" fxFill="">
+      <br>
+      <br>
+      <span class="logintext">Login</span>
+      <br>
+      <mat-input-container fxLayout="column" fxLayoutAlign="center" floatPlaceholder="auto">
+        <input matInput [(ngModel)]="user.username"
+               type="text"
+               required
+               placeholder="Username">
+      </mat-input-container>
+      <mat-input-container floatPlaceholder="auto">
+        <input matInput [(ngModel)]="user.password"
+               type="password"
+               required
+               placeholder="Username">
+      </mat-input-container>
+      <mat-checkbox color="primary">Remember me</mat-checkbox>
+      <br>
+      <form>
+        <button class="loginButton" ng-click mat-raised-button (click)="login()">LOGIN</button>
+      </form>
+    </div>
+  </mat-card>
 </div>

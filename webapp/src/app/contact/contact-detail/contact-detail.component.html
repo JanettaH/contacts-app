@@ -1,27 +1,42 @@
 <h2 class="header">
-  Create a contact
+  Create a new contact
 </h2>
 
 
 <div class="contact-form">
   <mat-form-field>
-    <input matInput placeholder="First name" [(ngModel)]="contact.firstName">
+    <input matInput floatPlaceholder="First name"
+           type="text"
+           required
+           placeholder="First Name" [(ngModel)]="contact.firstName">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Last name" [(ngModel)]="contact.lastName">
+    <input matInput floatPlaceholder="Last name"
+           type="text"
+           required
+           placeholder="Last Name" [(ngModel)]="contact.lastName">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Phone number" [(ngModel)]="contact.phoneNumber">
+    <input matInput floatPlaceholder="Phone number"
+           type="text"
+           required
+           placeholder="Phone Number"[(ngModel)]="contact.phoneNumber">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Address" [(ngModel)]="contact.address">
+    <input matInput floatPlaceholder="Address"
+           type="text"
+           required
+           placeholder="Address" [(ngModel)]="contact.address">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="City" [(ngModel)]="contact.city">
+    <input matInput floatPlaceholder="City"
+           type="text"
+           required
+           placeholder="City"[(ngModel)]="contact.city">
   </mat-form-field>
 
 </div>

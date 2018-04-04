@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {nextTick} from 'q';
 import {Router} from '@angular/router';
 import {PopupService} from '../../popup/popup/popup.service';
-import {error} from 'util';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'ca-login',
@@ -11,6 +10,8 @@ import {error} from 'util';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  disableSelect = new FormControl(false);
 
   user = {
     username: '',
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.user.username, this.user.password).subscribe((result) => {
-
+      this.router.navigate(['/ca/contact']);
     });
+  }
+
+  signup() {
+    this.router.navigate(['/signup']);
   }
 }

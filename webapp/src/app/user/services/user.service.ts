@@ -10,4 +10,7 @@ export class UserService {
     return this.authService.authenticate(username, password);
 
   }
+  signup(firstname: string, lastname: string, email: string, username: string, password: string) {
+    return this.authService.authenticate(username, password);
+  }
 }

@@ -1,25 +1,41 @@
 <mat-sidenav-container class="ca-sidenav-container">
-  <mat-sidenav #sidenav class="sidenav">
-    <div id="side-menu" class="side-nav">
-      <button mat-icon-button="settings" class="settings"><mat-icon>settings</mat-icon></button>
-      <button mat-icon-button="person" class="person"><mat-icon>person</mat-icon></button>
-      <button mat-icon-button="clear" class="clear" (click)="sidenav.close()"> <mat-icon>clear</mat-icon> </button>
-      <mat-icon class="ca-sidenav-avatar" color="primary">account_circle</mat-icon>
-      <button mat-icon-button="favorite" class="favorite"><mat-icon>star</mat-icon></button>
+
+  <mat-sidenav #sidenav align="start" class="ca-sidenav mat-elevation-z5"
+               [mode]="isSmallScreen ? 'over' : 'side'"
+               [opened]="!isSmallScreen">
+    <div fxLayout="column" class="">
+      <div fxLayout="column" fxLayoutAlign="center start" class="ca-padding ca-sidenav-user-area">
+        <div>
+          <mat-icon class="ca-sidenav-avatar" color="primary">account_circle</mat-icon>
+          <button mat-icon-button="clear" class="clear" (click)="sidenav.close()">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
       </div>
+      <mat-divider></mat-divider>
+      <div fxFlex fxLayout="row">
+        <mat-nav-list fxFlexFill>
+          <a mat-list-item (click)="showContactList()">
+            <mat-icon>person</mat-icon>
+            Profile</a>
+          <a mat-list-item (click)="showContactList()">
+            <mat-icon>contacts</mat-icon>
+            Contacts</a>
+          <a mat-list-item (click)="showContactList()">
+            <mat-icon>star</mat-icon>
+            Favorites</a>
+          <a mat-list-item (click)="showContactList()">
+            <mat-icon>settings</mat-icon>
+            Settings</a>
+        </mat-nav-list>
+      </div>
+    </div>
   </mat-sidenav>
 
-
-  <mat-toolbar color="primary">
-
-    <button mat-icon-button color="white" (click)="sidenav.open()"> <mat-icon>menu</mat-icon></button>
-
-    Contact app
-
-  </mat-toolbar>
-
-  <div>
-    <router-outlet></router-outlet>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxFlexFill>
+    <ca-toolbar color="primary" (toggleSidenav)="toggleSidenav()"></ca-toolbar>
+    <div class="ca-app-container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
 </mat-sidenav-container>
