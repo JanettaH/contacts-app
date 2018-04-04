@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userService.login(this.user.username, this.user.password).subscribe((result) => {
+    const userName = this.user.username + '@janettahuobonenhotmail.onmicrosoft.com';
+    this.userService.login(userName, this.user.password).subscribe((result) => {
       this.router.navigate(['/ca/contact']);
     });
   }
