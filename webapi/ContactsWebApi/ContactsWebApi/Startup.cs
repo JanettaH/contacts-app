@@ -51,7 +51,7 @@ namespace ContactsWebApi
                 .AddJwtBearer(options =>
                 {
                     //options.Audience = "<applicationId>";
-                    //options.Authority = "<loginUrl>" + "<directoryId>";
+                    //options.Authority = "<loginUrl>" + "<directoryId>"
                     options.Audience = "3ac8700d-6c1b-45c4-a00a-b6e6a9b24978";
                     options.Authority = "https://login.windows.net/" + "c3cf5f23-800c-4530-874c-86506f21d500";
                 });
