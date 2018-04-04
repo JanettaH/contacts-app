@@ -5,8 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Views\Shared\" />
+    <Compile Remove="Data\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="Data\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Data\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\ContactsWebApi20171204125338 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\ContactsWebApi20180404015338 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\ContactsWebApi20180404020707 - Web Deploy.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
